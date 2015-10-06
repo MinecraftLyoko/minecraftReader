@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		590881041BC30B9E00AB5CBF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590881031BC30B9E00AB5CBF /* main.swift */; };
+		590882311BC30F7D00AB5CBF /* RegionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590882301BC30F7D00AB5CBF /* RegionHeader.swift */; settings = {ASSET_TAGS = (); }; };
+		590882331BC30F8500AB5CBF /* RegionChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590882321BC30F8500AB5CBF /* RegionChunk.swift */; settings = {ASSET_TAGS = (); }; };
+		590882351BC312BF00AB5CBF /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590882341BC312BF00AB5CBF /* Region.swift */; settings = {ASSET_TAGS = (); }; };
+		590882371BC3144D00AB5CBF /* RegionLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590882361BC3144D00AB5CBF /* RegionLocation.swift */; settings = {ASSET_TAGS = (); }; };
+		5908823B1BC43A8B00AB5CBF /* NSData+GZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5908823A1BC43A8B00AB5CBF /* NSData+GZIP.swift */; settings = {ASSET_TAGS = (); }; };
+		590882401BC43B4700AB5CBF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5908823F1BC43B4700AB5CBF /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +31,14 @@
 /* Begin PBXFileReference section */
 		590881001BC30B9E00AB5CBF /* minecraftReader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = minecraftReader; sourceTree = BUILT_PRODUCTS_DIR; };
 		590881031BC30B9E00AB5CBF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		590882301BC30F7D00AB5CBF /* RegionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionHeader.swift; sourceTree = "<group>"; };
+		590882321BC30F8500AB5CBF /* RegionChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionChunk.swift; sourceTree = "<group>"; };
+		590882341BC312BF00AB5CBF /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		590882361BC3144D00AB5CBF /* RegionLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionLocation.swift; sourceTree = "<group>"; };
+		590882381BC3293800AB5CBF /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		5908823A1BC43A8B00AB5CBF /* NSData+GZIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+GZIP.swift"; sourceTree = "<group>"; };
+		5908823F1BC43B4700AB5CBF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		590882421BC43D2900AB5CBF /* zlib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = zlib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				590882401BC43B4700AB5CBF /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +56,11 @@
 		590880F71BC30B9E00AB5CBF = {
 			isa = PBXGroup;
 			children = (
+				5908823F1BC43B4700AB5CBF /* libz.tbd */,
+				590882381BC3293800AB5CBF /* MyPlayground.playground */,
 				590881021BC30B9E00AB5CBF /* minecraftReader */,
 				590881011BC30B9E00AB5CBF /* Products */,
+				590882421BC43D2900AB5CBF /* zlib */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +75,22 @@
 		590881021BC30B9E00AB5CBF /* minecraftReader */ = {
 			isa = PBXGroup;
 			children = (
+				590882391BC43A7200AB5CBF /* Util */,
 				590881031BC30B9E00AB5CBF /* main.swift */,
+				590882341BC312BF00AB5CBF /* Region.swift */,
+				590882301BC30F7D00AB5CBF /* RegionHeader.swift */,
+				590882321BC30F8500AB5CBF /* RegionChunk.swift */,
+				590882361BC3144D00AB5CBF /* RegionLocation.swift */,
 			);
 			path = minecraftReader;
+			sourceTree = "<group>";
+		};
+		590882391BC43A7200AB5CBF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				5908823A1BC43A8B00AB5CBF /* NSData+GZIP.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,6 +119,9 @@
 		590880F81BC30B9E00AB5CBF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Rhett Rogers";
 				TargetAttributes = {
@@ -118,7 +152,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				590882331BC30F8500AB5CBF /* RegionChunk.swift in Sources */,
+				590882311BC30F7D00AB5CBF /* RegionHeader.swift in Sources */,
+				5908823B1BC43A8B00AB5CBF /* NSData+GZIP.swift in Sources */,
+				590882371BC3144D00AB5CBF /* RegionLocation.swift in Sources */,
 				590881041BC30B9E00AB5CBF /* main.swift in Sources */,
+				590882351BC312BF00AB5CBF /* Region.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +246,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_INCLUDE_PATHS[arch=*]" = ../zlib;
 			};
 			name = Debug;
 		};
@@ -214,6 +254,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_INCLUDE_PATHS[arch=*]" = ../zlib;
 			};
 			name = Release;
 		};
