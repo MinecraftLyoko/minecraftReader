@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F2C04F1BECE8A01EDA41C91D0642E29674F006E9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F2C04F1BECE8A01EDA41C91D0642E29674F006E9" : 0,
+    "D3306B77C2CCC5DCBD1547181C047813D7329629" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "550A3C3D-E1DF-4983-8956-E9738DF68307",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F2C04F1BECE8A01EDA41C91D0642E29674F006E9" : "minecraftReader\/",
+    "D3306B77C2CCC5DCBD1547181C047813D7329629" : "tardis\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "minecraftReader",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "minecraftReader.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "localhost:~\/Desktop\/blue_tardis.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3306B77C2CCC5DCBD1547181C047813D7329629"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:SerenadeX\/minecraftReader.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F2C04F1BECE8A01EDA41C91D0642E29674F006E9"
+    }
+  ]
+}

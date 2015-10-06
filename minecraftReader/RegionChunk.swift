@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import zlib
+
 
 class RegionChunk {
     
@@ -28,9 +30,10 @@ class RegionChunk {
     var chunkLength: UInt32
     var compression: ChunkCompression
     var chunkData: NSData
-    
+    var chunkNBT: NBTTag
     
     init(data: NSData) {
+
         
         var len: UInt32 = 0
         data.subdataWithRange(NSRange(location: 0, length: 4)).getBytes(&len, length: 4)
@@ -42,22 +45,8 @@ class RegionChunk {
         
         chunkData = data.subdataWithRange(NSRange(location: 5, length: data.length - 5))
         
-        print(chunkLength)
-        print(compression)
-        print(chunkData.length)
-        // Z_DATA_ERROR   The input data was corrupted (input stream not conforming to the zlib format or incorrect check value).
-        // Z_STREAM_ERROR The stream structure was inconsistent (for example if next_in or next_out was NULL).
-        // Z_MEM_ERROR    There was not enough memory.
-        // Z_BUF_ERROR    No progress is possible or there was not enough room in the output buffer when Z_FINISH is used.
-        do {
-            try chunkData = chunkData.gunzippedData()
-            print(chunkData.length)
-        } catch let e as GzipError {
-            print("unzip failed")
-            print(e)
-        } catch {
-            print("what")
-        }
+        chunkData = chunkData.zlibDeflate()
+        chunkNBT = NBTTag(data: chunkData)
 
         
     }

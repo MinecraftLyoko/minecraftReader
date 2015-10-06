@@ -14,6 +14,8 @@
 		590882371BC3144D00AB5CBF /* RegionLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590882361BC3144D00AB5CBF /* RegionLocation.swift */; settings = {ASSET_TAGS = (); }; };
 		5908823B1BC43A8B00AB5CBF /* NSData+GZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5908823A1BC43A8B00AB5CBF /* NSData+GZIP.swift */; settings = {ASSET_TAGS = (); }; };
 		590882401BC43B4700AB5CBF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5908823F1BC43B4700AB5CBF /* libz.tbd */; };
+		590882451BC4471300AB5CBF /* NSData+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 590882441BC4471300AB5CBF /* NSData+Compression.m */; settings = {ASSET_TAGS = (); }; };
+		5908824B1BC44BC500AB5CBF /* NBTTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5908824A1BC44BC500AB5CBF /* NBTTag.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +41,10 @@
 		5908823A1BC43A8B00AB5CBF /* NSData+GZIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+GZIP.swift"; sourceTree = "<group>"; };
 		5908823F1BC43B4700AB5CBF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		590882421BC43D2900AB5CBF /* zlib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = zlib; sourceTree = "<group>"; };
+		590882431BC4471300AB5CBF /* NSData+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Compression.h"; sourceTree = "<group>"; };
+		590882441BC4471300AB5CBF /* NSData+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Compression.m"; sourceTree = "<group>"; };
+		590882491BC4483500AB5CBF /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = SOURCE_ROOT; };
+		5908824A1BC44BC500AB5CBF /* NBTTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTTag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 				590882301BC30F7D00AB5CBF /* RegionHeader.swift */,
 				590882321BC30F8500AB5CBF /* RegionChunk.swift */,
 				590882361BC3144D00AB5CBF /* RegionLocation.swift */,
+				5908824A1BC44BC500AB5CBF /* NBTTag.swift */,
 			);
 			path = minecraftReader;
 			sourceTree = "<group>";
@@ -88,7 +95,10 @@
 		590882391BC43A7200AB5CBF /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				590882431BC4471300AB5CBF /* NSData+Compression.h */,
+				590882441BC4471300AB5CBF /* NSData+Compression.m */,
 				5908823A1BC43A8B00AB5CBF /* NSData+GZIP.swift */,
+				590882491BC4483500AB5CBF /* Bridge.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -155,9 +165,11 @@
 				590882331BC30F8500AB5CBF /* RegionChunk.swift in Sources */,
 				590882311BC30F7D00AB5CBF /* RegionHeader.swift in Sources */,
 				5908823B1BC43A8B00AB5CBF /* NSData+GZIP.swift in Sources */,
+				590882451BC4471300AB5CBF /* NSData+Compression.m in Sources */,
 				590882371BC3144D00AB5CBF /* RegionLocation.swift in Sources */,
 				590881041BC30B9E00AB5CBF /* main.swift in Sources */,
 				590882351BC312BF00AB5CBF /* Region.swift in Sources */,
+				5908824B1BC44BC500AB5CBF /* NBTTag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +259,7 @@
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_INCLUDE_PATHS[arch=*]" = ../zlib;
+				SWIFT_OBJC_BRIDGING_HEADER = Bridge.h;
 			};
 			name = Debug;
 		};
@@ -255,6 +268,7 @@
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_INCLUDE_PATHS[arch=*]" = ../zlib;
+				SWIFT_OBJC_BRIDGING_HEADER = Bridge.h;
 			};
 			name = Release;
 		};
