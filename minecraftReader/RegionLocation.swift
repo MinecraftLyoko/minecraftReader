@@ -29,14 +29,29 @@ class RegionLocation {
     
     init(data: NSData) {
 
-        let offsetData = data.subdataWithRange(NSRange(location: 0, length: 3))
+        let offsetData = [
+            data.subdataWithRange(NSRange(location: 0, length: 1)),
+            data.subdataWithRange(NSRange(location: 1, length: 1)),
+            data.subdataWithRange(NSRange(location: 2, length: 1))
+        ]
         let lengthData = data.subdataWithRange(NSRange(location: 3,length: 1))
         var point: UInt32 = 0
         var off: UInt32 = 0
         lengthData.getBytes(&point, length: 1)
         length = point << 12
-        offsetData.getBytes(&off, length: 3)
-        offset = off >> 12
+        
+
+        
+        offsetData[0].getBytes(&off, length: 1)
+        offset = off << 16
+        offsetData[1].getBytes(&off, length: 1)
+        offset += off << 8
+        offsetData[2].getBytes(&off, length: 1)
+        offset += off
+        offset <<= 12
+        
+//        offsetData.getBytes(&off, length: 3)
+//        offset = off >> 12
 
 
         

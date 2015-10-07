@@ -23,8 +23,8 @@ class RegionChunk {
     }
     
     enum ChunkCompression: Int {
-        case GZIP = 0
-        case ZLIB = 1
+        case GZIP = 1
+        case ZLIB = 2
     }
     
     var chunkLength: UInt32
@@ -45,9 +45,11 @@ class RegionChunk {
         
         chunkData = data.subdataWithRange(NSRange(location: 5, length: data.length - 5))
         
-        chunkData = chunkData.zlibDeflate()
+        chunkData = chunkData.zlibInflate()
         chunkNBT = NBTTag(data: chunkData)
-
+        
+        
         
     }
+    
 }
