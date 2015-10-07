@@ -16,6 +16,9 @@
 		590882401BC43B4700AB5CBF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5908823F1BC43B4700AB5CBF /* libz.tbd */; };
 		590882451BC4471300AB5CBF /* NSData+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 590882441BC4471300AB5CBF /* NSData+Compression.m */; settings = {ASSET_TAGS = (); }; };
 		5908824B1BC44BC500AB5CBF /* NBTTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5908824A1BC44BC500AB5CBF /* NBTTag.swift */; settings = {ASSET_TAGS = (); }; };
+		59C760D21BC5BDAC008795F0 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C760D11BC5BDAC008795F0 /* Entity.swift */; settings = {ASSET_TAGS = (); }; };
+		59C760D41BC5BDD3008795F0 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C760D31BC5BDD3008795F0 /* Section.swift */; settings = {ASSET_TAGS = (); }; };
+		59C760D61BC5BDDF008795F0 /* TileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C760D51BC5BDDF008795F0 /* TileEntity.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +48,9 @@
 		590882441BC4471300AB5CBF /* NSData+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Compression.m"; sourceTree = "<group>"; };
 		590882491BC4483500AB5CBF /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = SOURCE_ROOT; };
 		5908824A1BC44BC500AB5CBF /* NBTTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBTTag.swift; sourceTree = "<group>"; };
+		59C760D11BC5BDAC008795F0 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		59C760D31BC5BDD3008795F0 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		59C760D51BC5BDDF008795F0 /* TileEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		590881021BC30B9E00AB5CBF /* minecraftReader */ = {
 			isa = PBXGroup;
 			children = (
+				59C760D01BC5BD9E008795F0 /* Entities */,
 				590882391BC43A7200AB5CBF /* Util */,
 				590881031BC30B9E00AB5CBF /* main.swift */,
 				590882341BC312BF00AB5CBF /* Region.swift */,
@@ -88,6 +95,8 @@
 				590882321BC30F8500AB5CBF /* RegionChunk.swift */,
 				590882361BC3144D00AB5CBF /* RegionLocation.swift */,
 				5908824A1BC44BC500AB5CBF /* NBTTag.swift */,
+				59C760D31BC5BDD3008795F0 /* Section.swift */,
+				59C760D51BC5BDDF008795F0 /* TileEntity.swift */,
 			);
 			path = minecraftReader;
 			sourceTree = "<group>";
@@ -101,6 +110,14 @@
 				590882491BC4483500AB5CBF /* Bridge.h */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		59C760D01BC5BD9E008795F0 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				59C760D11BC5BDAC008795F0 /* Entity.swift */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +184,9 @@
 				5908823B1BC43A8B00AB5CBF /* NSData+GZIP.swift in Sources */,
 				590882451BC4471300AB5CBF /* NSData+Compression.m in Sources */,
 				590882371BC3144D00AB5CBF /* RegionLocation.swift in Sources */,
+				59C760D41BC5BDD3008795F0 /* Section.swift in Sources */,
+				59C760D61BC5BDDF008795F0 /* TileEntity.swift in Sources */,
+				59C760D21BC5BDAC008795F0 /* Entity.swift in Sources */,
 				590881041BC30B9E00AB5CBF /* main.swift in Sources */,
 				590882351BC312BF00AB5CBF /* Region.swift in Sources */,
 				5908824B1BC44BC500AB5CBF /* NBTTag.swift in Sources */,
@@ -291,6 +311,7 @@
 				590881091BC30B9E00AB5CBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

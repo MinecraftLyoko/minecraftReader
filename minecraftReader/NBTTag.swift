@@ -33,8 +33,8 @@ class NBTTag {
     var byteValue: NSData?
     var shortValue: Int?
     var intValue: Int?
-    var longValue: Double?
-    var floatValue: Float?
+    var longValue: Int?
+    var floatValue: Float32?
     var doubleValue: Double?
     var byteArrayValue: [NSData]?
     var stringValue: String?
@@ -86,7 +86,7 @@ class NBTTag {
         case .Int:
             intValue = parseInt()
         case .Long:
-            longValue = parseDouble()
+            longValue = parseLong()
         case .Float:
             floatValue = parseFloat()
         case .Double:
@@ -115,12 +115,13 @@ class NBTTag {
             tagData.subdataWithRange(NSRange(location: 0, length: 1)),
             tagData.subdataWithRange(NSRange(location: 1, length: 1))
         ]
-        var len1: Int = 0
-        var len2: Int = 0
-        lengthData[0].getBytes(&len1, length: 1)
-        lengthData[1].getBytes(&len2, length: 1)
+        var len1: Int8 = 0
+        let ld = NSMutableData()
+        ld.appendData(lengthData[1])
+        ld.appendData(lengthData[0])
+        ld.getBytes(&len1, length: 2)
         parseData(2)
-        return (len1 << 8)+len2
+        return Int(len1)
     }
     
     func parseInt() -> Int {
@@ -130,20 +131,43 @@ class NBTTag {
             tagData.subdataWithRange(NSRange(location: 2, length: 1)),
             tagData.subdataWithRange(NSRange(location: 3, length: 1))
         ]
-        var len1: Int = 0
-        var len2: Int = 0
-        var len3: Int = 0
-        var len4: Int = 0
-        lengthData[0].getBytes(&len1, length: 1)
-        lengthData[1].getBytes(&len2, length: 1)
-        lengthData[2].getBytes(&len3, length: 1)
-        lengthData[3].getBytes(&len4, length: 1)
+        var len1: Int16 = 0
+        let ld = NSMutableData()
+        ld.appendData(lengthData[3])
+        ld.appendData(lengthData[2])
+        ld.appendData(lengthData[1])
+        ld.appendData(lengthData[0])
+        ld.getBytes(&len1, length: 4)
         parseData(4)
-        return (len1 << 24)+(len2 << 16)+(len3 << 8)+len4
+        return Int(len1)
     }
     
-    func parseLong() -> Double {
-        return parseDouble()
+    func parseLong() -> Int {
+        let lengthData = [
+            tagData.subdataWithRange(NSRange(location: 0, length: 1)),
+            tagData.subdataWithRange(NSRange(location: 1, length: 1)),
+            tagData.subdataWithRange(NSRange(location: 2, length: 1)),
+            tagData.subdataWithRange(NSRange(location: 3, length: 1)),
+            tagData.subdataWithRange(NSRange(location: 4, length: 1)),
+            tagData.subdataWithRange(NSRange(location: 5, length: 1)),
+            tagData.subdataWithRange(NSRange(location: 6, length: 1)),
+            tagData.subdataWithRange(NSRange(location: 7, length: 1))
+        ]
+        
+        var len1: Int = 0
+        let ld = NSMutableData()
+        ld.appendData(lengthData[7])
+        ld.appendData(lengthData[6])
+        ld.appendData(lengthData[5])
+        ld.appendData(lengthData[4])
+        ld.appendData(lengthData[3])
+        ld.appendData(lengthData[2])
+        ld.appendData(lengthData[1])
+        ld.appendData(lengthData[0])
+        parseData(8)
+        ld.getBytes(&len1, length: 8)
+        return len1
+
     }
     
     func parseDouble() -> Double {
@@ -159,59 +183,38 @@ class NBTTag {
         ]
         
         var len1: Double = 0
-        var len2: Double = 0
-        var len3: Double = 0
-        var len4: Double = 0
-        var len5: Double = 0
-        var len6: Double = 0
-        var len7: Double = 0
-        var len8: Double = 0
-        lengthData[0].getBytes(&len1, length: 1)
-        lengthData[1].getBytes(&len2, length: 1)
-        lengthData[2].getBytes(&len3, length: 1)
-        lengthData[3].getBytes(&len4, length: 1)
-        lengthData[4].getBytes(&len5, length: 1)
-        lengthData[5].getBytes(&len6, length: 1)
-        lengthData[6].getBytes(&len7, length: 1)
-        lengthData[7].getBytes(&len8, length: 1)
+        let ld = NSMutableData()
+        ld.appendData(lengthData[7])
+        ld.appendData(lengthData[6])
+        ld.appendData(lengthData[5])
+        ld.appendData(lengthData[4])
+        ld.appendData(lengthData[3])
+        ld.appendData(lengthData[2])
+        ld.appendData(lengthData[1])
+        ld.appendData(lengthData[0])
         parseData(8)
-        len1 *= pow(2, 7)
-        len2 *= pow(2, 6)
-        len3 *= pow(2, 5)
-        len4 *= pow(2, 4)
-        len5 *= pow(2, 3)
-        len6 *= pow(2, 2)
-        len7 *= pow(2, 1)
-
+        ld.getBytes(&len1, length: 8)
         
-        
-        
-        return len1+len2+len3+len4+len5+len6+len7+len8
+        return len1
     }
     
-    func parseFloat() -> Float {
+    func parseFloat() -> Float32 {
         let lengthData = [
             tagData.subdataWithRange(NSRange(location: 0, length: 1)),
             tagData.subdataWithRange(NSRange(location: 1, length: 1)),
             tagData.subdataWithRange(NSRange(location: 2, length: 1)),
             tagData.subdataWithRange(NSRange(location: 3, length: 1))
         ]
-        var len1: Float = 0
-        var len2: Float = 0
-        var len3: Float = 0
-        var len4: Float = 0
-        lengthData[0].getBytes(&len1, length: 1)
-        lengthData[1].getBytes(&len2, length: 1)
-        lengthData[2].getBytes(&len3, length: 1)
-        lengthData[3].getBytes(&len4, length: 1)
+
+        let ld = NSMutableData()
+        ld.appendData(lengthData[3])
+        ld.appendData(lengthData[2])
+        ld.appendData(lengthData[1])
+        ld.appendData(lengthData[0])
+        var fl: Float32 = 0
+        ld.getBytes(&fl, length: 4)
         parseData(4)
-        
-        len1 *= pow(2,3)
-        len2 *= pow(2,2)
-        len3 *= pow(2,1)
-        
-        
-        return len1+len2+len3+len4
+        return fl
     }
     
     func parseString() -> String {
@@ -257,9 +260,7 @@ class NBTTag {
             let nextTag = NBTTag(data: tagData)
             arr.append(nextTag)
             noEnd = (nextTag.ID == .End) || (nextTag.ID == .Unknown)
-            if !noEnd {
-                parseData(nextTag.dataLength)
-            }
+            parseData(nextTag.dataLength)
         }
         return arr
     }
@@ -344,21 +345,34 @@ class NBTTag {
             }
         case .Compound:
             if let c = compoundValue {
-                returnString += "[\n"
+                returnString += "["
+                
+                
+                if c.count > 0 && c[0].ID != .End {
+                    returnString += "\n"
+                }
+                
                 for x in c {
+                    if x.ID == .End {
+                        continue
+                    }
+                    
                     returnString += "\(x.description)"
                     returnString += "\n"
                 }
-                returnString += "]\n"
+                returnString += "]"
             }
         case .List:
             if let l = listValue {
-                returnString += "[\n"
+                returnString += "["
+                if l.count > 0 {
+                    returnString += "\n"
+                }
                 for x in l {
                     returnString += "\(x.description)"
                     returnString += "\n"
                 }
-                returnString += "]\n"
+                returnString += "]"
             }
         case .Byte_Array:
             if let b = byteArrayValue {

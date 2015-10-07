@@ -19,10 +19,10 @@ class RegionLocation {
         for x in 0...(data.length/4) - 1 {
             locs.append(RegionLocation(data: data.subdataWithRange(NSRange(location: x * 4, length: 4))))
         }
-        locs = locs.sort { (one, two) -> Bool in
-            return one.offset < two.offset
-        }
-        
+//        locs = locs.sort { (one, two) -> Bool in
+//            return one.offset < two.offset
+//        }
+//        
         
         return locs
     }

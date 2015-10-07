@@ -32,14 +32,19 @@ class RegionChunk {
     var chunkData: NSData
     var chunkNBT: NBTTag
     
+    
+
+    var lightPopulated: Bool?
+    var terrainPopulated: Bool?
     var chunkLocation: (x: Int, z: Int)?
+    var inhabitedTime: Int?
+    var lastUpdate: Int?
     var biomes: [NSData]?
-    var lightPopulated: NSData?
+    var entities: [NBTTag]?
+    var sections: [NBTTag]?
+    var tileEntities: [NBTTag]?
     var heightMap: [Int]?
-    var data: [NSData]?
-    var skyLight: [NSData]?
-    var blockLight: [NSData]?
-    var blocks: [NSData]?
+
     
     init(data: NSData) {
 
@@ -57,10 +62,8 @@ class RegionChunk {
         chunkData = chunkData.zlibInflate()
         chunkNBT = NBTTag(data: chunkData)
         
-        print(chunkNBT.description)
         processChunk()
-//        print("\(chunkLocation)")
-        
+        print(chunkLocation)
     }
     
     private func processChunk() {
@@ -68,15 +71,29 @@ class RegionChunk {
             for x in c {
                 if let name = x.tagName where name == "Level" {
                     if let levelCompound = x.compoundValue {
+                        var tempPos = (x: 0, z: 0)
+                        var foundPos = false
                         for y in levelCompound {
-                            var tempPos = (x: 0, z: 0)
-                            var foundPos = false
+
+
                             if let name = y.tagName {
                                 switch name {
                                 case "Biomes":
                                     biomes = y.byteArrayValue
                                 case "LightPopulated":
-                                    lightPopulated = y.byteValue
+                                    if let b = y.byteValue {
+                                        var truthy: Int = -1
+                                        b.getBytes(&truthy, length: 1)
+                                        lightPopulated = Bool(truthy)
+                                        
+                                        
+                                    }
+                                case "TerrainPopulated":
+                                    if let b = y.byteValue {
+                                        var truthy: Int = -1
+                                        b.getBytes(&truthy, length: 1)
+                                        terrainPopulated = Bool(truthy)
+                                    }
                                 case "xPos":
                                     if let i = y.intValue {
                                         tempPos.x = i
@@ -89,12 +106,13 @@ class RegionChunk {
                                     }
                                 default: break
                                 }
-                                if foundPos {
-                                    chunkLocation = tempPos
-                                }
                                 
                             }
                             
+                        }
+                        
+                        if foundPos {
+                            chunkLocation = tempPos
                         }
                         
                         

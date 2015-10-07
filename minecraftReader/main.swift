@@ -9,7 +9,7 @@ import Foundation
 
 let dirs = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DesktopDirectory, NSSearchPathDomainMask.UserDomainMask, true)
 
-let file = "/tardis/Olympia/region/r.0.0.mca" // My change to your code - yours is presumably set off-screen
+let file = "/tardis/Olympia/region/r.-1.-1.mca" // My change to your code - yours is presumably set off-screen
 
 let dir = dirs[0]; //documents directory
 let path = "\(dir)\(file)"
