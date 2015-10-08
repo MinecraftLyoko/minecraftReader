@@ -8,3 +8,10 @@
 
 import Foundation
 
+class TileEntity {
+    var tagData: NBTTag
+    
+    init(tag: NBTTag) {
+        tagData = tag
+    }
+}

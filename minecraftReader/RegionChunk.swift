@@ -41,8 +41,8 @@ class RegionChunk {
     var lastUpdate: Int?
     var biomes: [NSData]?
     var entities: [Entity]?
-    var sections: [NBTTag]?
-    var tileEntities: [NBTTag]?
+    var sections: [Section]?
+    var tileEntities: [TileEntity]?
     var heightMap: [Int]?
 
     
@@ -113,6 +113,20 @@ class RegionChunk {
                                             } catch {
                                                 print("threw")
                                             }
+                                        }
+                                    }
+                                case "Sections":
+                                    if let l = y.listValue {
+                                        for var sectionTag in l {
+                                            let section = Section(tag: sectionTag)
+                                            sections?.append(section)
+                                        }
+                                    }
+                                case "TileEntity":
+                                    if let l = y.listValue {
+                                        for var tileEntTag in l {
+                                            let tileEnt = TileEntity(tag: tileEntTag)
+                                            tileEntities?.append(tileEnt)
                                         }
                                     }
                                 default: break

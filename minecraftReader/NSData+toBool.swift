@@ -17,4 +17,10 @@ extension NSData {
         }
         return Bool(a)
     }
+    
+    func toInt() -> Int {
+        var a = Int()
+        self.getBytes(&a, length: 1)
+        return a
+    }
 }
