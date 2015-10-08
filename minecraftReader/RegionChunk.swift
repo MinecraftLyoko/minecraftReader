@@ -40,7 +40,7 @@ class RegionChunk {
     var inhabitedTime: Int?
     var lastUpdate: Int?
     var biomes: [NSData]?
-    var entities: [NBTTag]?
+    var entities: [Entity]?
     var sections: [NBTTag]?
     var tileEntities: [NBTTag]?
     var heightMap: [Int]?
@@ -103,6 +103,17 @@ class RegionChunk {
                                     if let i = y.intValue {
                                         tempPos.z = i
                                         foundPos = true
+                                    }
+                                case "Entities":
+                                    if let l = y.listValue {
+                                        for var entityTag in l {
+                                            do {
+                                            let entity = try Entity(tag: entityTag)
+                                            entities?.append(entity)
+                                            } catch {
+                                                print("threw")
+                                            }
+                                        }
                                     }
                                 default: break
                                 }

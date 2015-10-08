@@ -19,6 +19,7 @@
 		59C760D21BC5BDAC008795F0 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C760D11BC5BDAC008795F0 /* Entity.swift */; settings = {ASSET_TAGS = (); }; };
 		59C760D41BC5BDD3008795F0 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C760D31BC5BDD3008795F0 /* Section.swift */; settings = {ASSET_TAGS = (); }; };
 		59C760D61BC5BDDF008795F0 /* TileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C760D51BC5BDDF008795F0 /* TileEntity.swift */; settings = {ASSET_TAGS = (); }; };
+		59C760D81BC5C6DB008795F0 /* NSData+toBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C760D71BC5C6DB008795F0 /* NSData+toBool.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,7 @@
 		59C760D11BC5BDAC008795F0 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		59C760D31BC5BDD3008795F0 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		59C760D51BC5BDDF008795F0 /* TileEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileEntity.swift; sourceTree = "<group>"; };
+		59C760D71BC5C6DB008795F0 /* NSData+toBool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+toBool.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				590882441BC4471300AB5CBF /* NSData+Compression.m */,
 				5908823A1BC43A8B00AB5CBF /* NSData+GZIP.swift */,
 				590882491BC4483500AB5CBF /* Bridge.h */,
+				59C760D71BC5C6DB008795F0 /* NSData+toBool.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				590882331BC30F8500AB5CBF /* RegionChunk.swift in Sources */,
 				590882311BC30F7D00AB5CBF /* RegionHeader.swift in Sources */,
 				5908823B1BC43A8B00AB5CBF /* NSData+GZIP.swift in Sources */,
+				59C760D81BC5C6DB008795F0 /* NSData+toBool.swift in Sources */,
 				590882451BC4471300AB5CBF /* NSData+Compression.m in Sources */,
 				590882371BC3144D00AB5CBF /* RegionLocation.swift in Sources */,
 				59C760D41BC5BDD3008795F0 /* Section.swift in Sources */,

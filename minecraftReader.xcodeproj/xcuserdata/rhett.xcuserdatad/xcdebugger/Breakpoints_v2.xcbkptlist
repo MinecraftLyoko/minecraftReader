@@ -99,5 +99,69 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "minecraftReader/RegionChunk.swift"
+            timestampString = "465952351.429316"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "processChunk()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "minecraftReader.RegionChunk.(processChunk in _9697D78378FA2C61FBB7FB5B750745F9) (minecraftReader.RegionChunk)() -&gt; ()"
+                  moduleName = "minecraftReader"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rhett/Desktop/minecraftReader/minecraftReader/RegionChunk.swift"
+                  timestampString = "465952375.673894"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "4659">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "minecraftReader.RegionChunk.(processChunk in _9697D78378FA2C61FBB7FB5B750745F9) (minecraftReader.RegionChunk)() -&gt; ()"
+                  moduleName = "minecraftReader"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rhett/Desktop/minecraftReader/minecraftReader/RegionChunk.swift"
+                  timestampString = "465952375.674"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "5122">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "minecraftReader/RegionChunk.swift"
+            timestampString = "465952374.239959"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "processChunk()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
